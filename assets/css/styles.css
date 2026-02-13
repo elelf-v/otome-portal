@@ -426,6 +426,83 @@ main dd {
   max-width: 70ch;
 }
 
+/* ========= Review ========= */
+.review-article {
+  padding-top: 8px;
+}
+
+.review-header {
+  border: 1px solid var(--line);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.86),
+    rgba(255, 250, 242, 0.74)
+  );
+  border-radius: var(--radius2);
+  box-shadow: var(--shadow2);
+  padding: 30px 24px 24px;
+  margin-bottom: 18px;
+}
+
+.review-header h1 {
+  margin: 0 0 10px;
+}
+
+.review-header .lead {
+  margin: 0;
+  color: var(--muted);
+  max-width: 70ch;
+}
+
+.review-item {
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
+  padding: 20px 18px 16px;
+}
+
+.review-item + .review-item {
+  margin-top: 14px;
+}
+
+.review-item h2 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  font-size: clamp(18px, 1rem + 0.32vw, 22px);
+}
+
+.review-item h2::after {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 2px;
+  margin-top: 8px;
+  background: var(--redChic);
+}
+
+.review-item p {
+  color: rgba(15, 23, 42, 0.78);
+  margin-bottom: 12px;
+  max-width: none;
+  line-height: 1.95;
+}
+
+.review-point {
+  border-left: 3px solid rgba(155, 44, 44, 0.6);
+  background: rgba(155, 44, 44, 0.05);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+
+.review-tag {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--muted2);
+  letter-spacing: 0.04em;
+}
+
 /* TOC */
 .toc {
   border: 1px solid rgba(201, 167, 182, 0.45);
@@ -595,6 +672,12 @@ a.footnote:hover {
   }
   .page-header {
     padding: 24px 16px 20px;
+  }
+  .review-header {
+    padding: 24px 16px 20px;
+  }
+  .review-item {
+    padding: 16px 14px 14px;
   }
   .toc {
     padding: 14px 14px 12px;
