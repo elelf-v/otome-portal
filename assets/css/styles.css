@@ -473,6 +473,40 @@ main dd {
   font-size: clamp(18px, 1rem + 0.32vw, 22px);
 }
 
+.review-item h2.review-title {
+  position: relative;
+  padding-left: 42px;
+  min-height: 34px;
+}
+
+.review-item h2.review-title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1px;
+  width: 30px;
+  height: 30px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.review-item h2.icon-sangoku::before {
+  background-image: url("../images/review-icon-sangoku.svg");
+}
+
+.review-item h2.icon-olympia::before {
+  background-image: url("../images/review-icon-olympia.svg");
+}
+
+.review-item h2.icon-bws::before {
+  background-image: url("../images/review-icon-bws.svg");
+}
+
+.review-item h2.icon-hakuoki::before {
+  background-image: url("../images/review-icon-hakuoki.svg");
+}
+
 .review-item h2::after {
   content: "";
   display: block;
@@ -678,6 +712,15 @@ a.footnote:hover {
   }
   .review-item {
     padding: 16px 14px 14px;
+  }
+  .review-item h2.review-title {
+    padding-left: 36px;
+    min-height: 30px;
+  }
+  .review-item h2.review-title::before {
+    width: 24px;
+    height: 24px;
+    top: 1px;
   }
   .toc {
     padding: 14px 14px 12px;
