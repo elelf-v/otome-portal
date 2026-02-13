@@ -5,9 +5,37 @@ async function loadPartial(id, file) {
   document.getElementById(id).innerHTML = html;
 }
 
+function syncFixedLayoutSpace() {
+  const root = document.documentElement;
+  const header = document.querySelector(".site-header");
+  const footer = document.querySelector(".site-footer");
+
+  if (header) {
+    root.style.setProperty(
+      "--header-space",
+      `${Math.ceil(header.getBoundingClientRect().height)}px`,
+    );
+  }
+
+  if (footer) {
+    root.style.setProperty(
+      "--footer-space",
+      `${Math.ceil(footer.getBoundingClientRect().height)}px`,
+    );
+  }
+}
+
 async function initLayout() {
   await loadPartial("header", "partials/header.html");
   await loadPartial("footer", "partials/footer.html");
+
+  const updateLayoutSpace = () => {
+    window.requestAnimationFrame(syncFixedLayoutSpace);
+  };
+
+  updateLayoutSpace();
+  window.addEventListener("resize", updateLayoutSpace);
+  window.addEventListener("load", updateLayoutSpace);
 
   // ハンバーガーメニュー
   const toggle = document.getElementById("menu-toggle");
@@ -16,8 +44,11 @@ async function initLayout() {
   if (toggle) {
     toggle.addEventListener("click", () => {
       nav.classList.toggle("open");
+      updateLayoutSpace();
     });
   }
+
+  highlightCurrentPage();
 }
 
 initLayout();
@@ -39,8 +70,6 @@ function highlightCurrentPage() {
     link.classList.add("active");
   }
 }
-
-highlightCurrentPage();
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("diagnosis-form");

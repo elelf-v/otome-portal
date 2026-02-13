@@ -32,6 +32,8 @@
   --shadow2: 0 10px 26px rgba(15, 23, 42, 0.1);
   --radius: 18px;
   --radius2: 26px;
+  --header-space: 74px;
+  --footer-space: 82px;
 
   --max: 1080px;
   --reading: 68ch;
@@ -74,6 +76,8 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   background-attachment: fixed; /* Keep decorative bg behind content */
+  padding-top: var(--header-space);
+  padding-bottom: var(--footer-space);
 }
 
 a {
@@ -170,9 +174,11 @@ main dd {
 
 /* ========= Header ========= */
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 10;
+  left: 0;
+  right: 0;
+  z-index: 20;
   backdrop-filter: blur(10px);
   background: rgba(251, 248, 242, 0.72);
   border-bottom: 1px solid var(--line);
@@ -284,7 +290,12 @@ main dd {
 
 /* ========= Footer ========= */
 .site-footer {
-  margin-top: 80px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 18;
+  margin-top: 0;
   border-top: 1px solid rgba(15, 23, 42, 0.12);
   padding: 22px 0 28px;
   color: var(--muted2);
