@@ -9,46 +9,145 @@
   <body>
     <div id="header"></div>
 
-    <main>
-      <h1>About</h1>
-      <p>このサイトについて。</p>
+    <main class="container">
+      <header class="page-header">
+        <h1>About</h1>
+        <p>このサイトについて。</p>
+      </header>
 
-      <section>
-        <h2>制作者</h2>
-
+      <section aria-labelledby="about-creator">
+        <h2 id="about-creator">制作者</h2>
         <p>
           制作者：elelf-v<br />
           学籍番号：提出版（submitブランチ）に記載
         </p>
-        <h2>目的</h2>
+      </section>
+
+      <section aria-labelledby="about-purpose">
+        <h2 id="about-purpose">目的</h2>
         <p>
           乙女ゲームを「恋愛」だけでなく「物語体験」として選ぶための入口をつくる。
         </p>
       </section>
 
-      <section>
-        <h2>ネタバレ方針（仮）</h2>
+      <section aria-labelledby="about-policy">
+        <h2 id="about-policy">コンテンツ方針</h2>
         <ul>
-          <li>基本はネタバレなし</li>
-          <li>必要な場合は明示して折りたたむ（後で実装）</li>
+          <li>本サイトは原則として文章主体で構成する。</li>
+          <li>ゲーム画像・音楽などの素材は原則使用しない。</li>
+          <li>
+            作品名の紹介は、ネタバレを避けつつ体験価値が伝わる範囲で行う。
+          </li>
+          <li>
+            他者情報を参照する場合は、出典を明記し、引用ルールを遵守する。
+          </li>
         </ul>
       </section>
 
-      <section>
-        <h2>著作権および免責事項</h2>
+      <section aria-labelledby="about-spoiler">
+        <h2 id="about-spoiler">ネタバレについて</h2>
+        <p>
+          本サイトでは、未プレイの方の体験を損なわないよう、結末や重要な展開に関わる内容の記載は避けています。
+          ただし、作品の魅力を伝えるために必要な範囲で、設定や導入部分に触れる場合があります。
+        </p>
+      </section>
+
+      <section aria-labelledby="about-copyright">
+        <h2 id="about-copyright">著作権・免責事項</h2>
 
         <p>
-          本サイトで紹介しているゲームタイトル、キャラクター名、ロゴ等の著作権は、
+          本サイトで紹介しているゲームタイトル、キャラクター名、ロゴ等の著作権・商標権は、
           各権利者に帰属します。
         </p>
 
         <p>
-          本サイトは非公式のファンサイトであり、公式とは一切関係ありません。
+          本サイトは非公式のファンサイトであり、各公式サイト・企業・団体とは一切関係ありません。
         </p>
 
         <p>
           掲載している内容は個人の感想・考察に基づくものであり、
-          正確性や完全性を保証するものではありません。
+          情報の正確性・完全性を保証するものではありません。
+          また、本サイトの利用により生じたいかなる損害についても責任を負いません。
+        </p>
+
+        <p>万一、掲載内容に問題がある場合は、確認の上、適切に対応します。</p>
+      </section>
+
+      <section aria-labelledby="about-references">
+        <h2 id="about-references">参考情報・外部リンク</h2>
+        <p>
+          本サイト制作にあたり、以下の公式サイトおよび情報媒体を参照した。<br />
+          各情報は<strong>2026年2月13日</strong>時点で確認している。
+        </p>
+
+        <ul>
+          <li>
+            オトメイト 公式サイト（製品一覧）：
+            <a
+              href="https://www.otomate.jp/game/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://www.otomate.jp/game/</a
+            >
+          </li>
+          <li>
+            オトメイト ポータルサイト：
+            <a
+              href="https://www.otomate-p.jp/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://www.otomate-p.jp/</a
+            >
+          </li>
+          <li>
+            マイニンテンドーストア（体験版・セール検索）：
+            <a
+              href="https://store-jp.nintendo.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://store-jp.nintendo.com/</a
+            >
+          </li>
+          <li>
+            nintendo.com 乙女ゲーム特集：
+            <a
+              href="https://www.nintendo.com/jp/games/feature/otome.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://www.nintendo.com/jp/games/feature/otome.html</a
+            >
+          </li>
+          <li>
+            sakidori.co 乙女ゲーム関連記事：
+            <a
+              href="https://sakidori.co/article/2665977"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://sakidori.co/article/2665977</a
+            >
+          </li>
+          <li>
+            Wikipedia 乙女ゲーム：
+            <a
+              href="https://ja.wikipedia.org/wiki/%E4%B9%99%E5%A5%B3%E3%82%B2%E3%83%BC%E3%83%A0"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://ja.wikipedia.org/wiki/%E4%B9%99%E5%A5%B3%E3%82%B2%E3%83%BC%E3%83%A0</a
+            >
+          </li>
+          <li>
+            にじめん 乙女ゲーム特集・アンケート：
+            <a
+              href="https://nijimen.net/topics/191487"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://nijimen.net/topics/191487</a
+            >
+          </li>
+        </ul>
+
+        <p>
+          本サイトは上記情報を参考にしつつ、独自の視点と体験に基づき再構成したものである。
         </p>
       </section>
     </main>
