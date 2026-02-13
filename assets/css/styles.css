@@ -81,8 +81,6 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   background-attachment: fixed; /* Keep decorative bg behind content */
-  padding-top: var(--header-space);
-  padding-bottom: calc(var(--footer-space) + 36px);
 }
 
 a {
@@ -105,6 +103,14 @@ a:hover {
 .footer-inner {
   width: min(var(--max), calc(100% - 40px));
   margin: 0 auto;
+}
+
+#header {
+  min-height: var(--header-space);
+}
+
+#footer {
+  min-height: calc(var(--footer-space) + 36px);
 }
 
 /* ===== Main (paper) ===== */
@@ -813,7 +819,6 @@ hr {
   margin-top: 14px;
   display: grid;
   gap: 12px;
-  padding-bottom: calc(var(--footer-space) + 8px);
 }
 
 .diagnosis .question {
