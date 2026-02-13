@@ -34,6 +34,7 @@
   --radius2: 26px;
 
   --max: 1080px;
+  --reading: 68ch;
 
   --serif:
     ui-serif, "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", "YuMincho",
@@ -68,9 +69,11 @@ body {
     ),
     linear-gradient(180deg, var(--bg), var(--bg2));
   font-family: var(--sans);
-  line-height: 1.8;
+  line-height: 1.9;
   letter-spacing: 0.02em;
-  background-attachment: fixed; /* 背景の干渉を抑える */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  background-attachment: fixed; /* Keep decorative bg behind content */
 }
 
 a {
@@ -105,6 +108,22 @@ main {
   border: 1px solid rgba(15, 23, 42, 0.1);
   border-radius: var(--radius2);
   box-shadow: 0 18px 45px rgba(15, 23, 42, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+main::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 6px;
+  background: linear-gradient(
+    90deg,
+    rgba(201, 167, 182, 0.45),
+    rgba(155, 44, 44, 0.2),
+    rgba(31, 42, 68, 0.4)
+  );
+  pointer-events: none;
 }
 
 /* Typo */
@@ -133,7 +152,15 @@ h3 {
 }
 p {
   margin: 0 0 12px;
-  color: #111; /* 本文は黒寄り固定 */
+  color: #111; /* 本文を読みやすく */
+  max-width: var(--reading);
+}
+
+main > p,
+main section > p,
+main li,
+main dd {
+  font-size: clamp(14.5px, 0.95rem + 0.18vw, 16.5px);
 }
 .small,
 .note {
@@ -327,6 +354,24 @@ p {
   transition: 0.18s ease;
   box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
   display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -30%;
+  width: 60%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(155, 44, 44, 0.55),
+    transparent
+  );
+  transition: 0.22s ease;
 }
 
 .card:hover {
@@ -334,6 +379,10 @@ p {
   border-color: rgba(155, 44, 44, 0.45);
   box-shadow: 0 12px 32px rgba(155, 44, 44, 0.12);
   transform: translateY(-2px);
+}
+
+.card:hover::before {
+  left: 35%;
 }
 
 .card h2,
@@ -361,7 +410,7 @@ p {
   );
   border-radius: var(--radius2);
   box-shadow: var(--shadow2);
-  padding: 32px 26px 28px; /* ここを統一 */
+  padding: 32px 26px 28px; /* Keep header rhythm consistent */
   margin-bottom: 18px;
 }
 
@@ -417,12 +466,13 @@ main section {
 }
 
 main section + section {
-  border-top: 1px solid rgba(15, 23, 42, 0.06); /* 統一 */
+  border-top: 1px solid rgba(15, 23, 42, 0.06); /* Section divider */
 }
 
 main section h2 {
   position: relative;
   padding-bottom: 8px;
+  margin-bottom: 14px;
 }
 
 main section h2::after {
@@ -439,9 +489,10 @@ main section h2::after {
 ul,
 ol {
   color: #111;
+  padding-left: 1.35em;
 }
 li {
-  margin: 6px 0;
+  margin: 8px 0;
 }
 strong {
   color: var(--redChic);
@@ -506,6 +557,7 @@ dl.history dd {
   margin: 16px 0;
   font-size: 13px;
   color: var(--muted);
+  max-width: var(--reading);
 }
 
 /* Reference links / supscript */
@@ -530,6 +582,26 @@ a.footnote:hover {
   main {
     padding: 26px 18px 44px;
     border-radius: 20px;
+  }
+  h1 {
+    letter-spacing: 0.04em;
+  }
+  p,
+  li,
+  dd {
+    line-height: 1.85;
+  }
+  .page-header {
+    padding: 24px 16px 20px;
+  }
+  .toc {
+    padding: 14px 14px 12px;
+  }
+  .card-grid {
+    gap: 10px;
+  }
+  .card {
+    padding: 14px 13px 12px;
   }
   .next-links {
     grid-template-columns: 1fr;
