@@ -2,10 +2,9 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <title>レコメンド｜Otome Portal</title>
+    <title>タイプ診断｜Otome Portal</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="assets/css/styles.css" />
-
   </head>
 
   <body>
@@ -13,343 +12,112 @@
 
     <main class="page">
       <header class="page-header">
-        <h1>タイプ別レコメンド</h1>
+        <h1>タイプ診断</h1>
         <p class="lead">
-          診断結果（または今日の気分）から、合う物語の入口へ。<br />
-          まずは「迷ったらここから（王道）」でもOKです。
+          あなたが心地よく浸れる「物語体験」を見つけます。<br />
+          直感で選んでOK。
         </p>
       </header>
 
-      <!-- 迷ったらここから（王道3選） -->
-      <section class="recommend-section">
-        <h2>迷ったらここから（王道3選）</h2>
+      <form id="diagnosis-form" class="diagnosis">
+        <fieldset class="question">
+          <legend>1. 物語はどちらが好き？</legend>
+          <label
+            ><input type="radio" name="q1" value="a" required />
+            重くても濃い方がいい</label
+          >
+          <label
+            ><input type="radio" name="q1" value="c" />
+            軽めで読みやすい方がいい</label
+          >
+        </fieldset>
 
-        <div class="works-grid">
-          <article class="work-card">
-            <div class="work-top">
-              <!-- ノート（ときメモGS） -->
-              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                <path
-                  d="M7 4h10a2 2 0 0 1 2 2v14H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"
-                />
-                <path d="M9 8h6" />
-                <path d="M9 12h6" />
-                <path d="M9 16h4" />
-              </svg>
-              <h3>ときめきメモリアル Girl's Side 4th Heart</h3>
-            </div>
-            <p>日常の積み重ねで関係が変わる。入口として安心。</p>
-          </article>
+        <fieldset class="question">
+          <legend>2. 読後に欲しいのは？</legend>
+          <label
+            ><input type="radio" name="q2" value="b" required />
+            余韻に浸りたい</label
+          >
+          <label
+            ><input type="radio" name="q2" value="a" />
+            スッキリ納得したい</label
+          >
+        </fieldset>
 
-          <article class="work-card">
-            <div class="work-top">
-              <!-- 手錠（カラマリ） -->
-              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M8 7a4 4 0 1 0 0 8h2" />
-                <path d="M16 7a4 4 0 1 1 0 8h-2" />
-                <path d="M10 11h4" />
-              </svg>
-              <h3>Collar×Malice</h3>
-            </div>
-            <p>
-              サスペンスで引っ張る“物語体験”。恋愛以外の魅力が伝わりやすい。
-            </p>
-          </article>
+        <fieldset class="question">
+          <legend>3. しんどい展開は？</legend>
+          <label
+            ><input type="radio" name="q3" value="b" required />
+            あっても刺さる</label
+          >
+          <label
+            ><input type="radio" name="q3" value="c" /> できれば少なめ</label
+          >
+        </fieldset>
 
-          <article class="work-card">
-            <div class="work-top">
-              <!-- 花（薄桜鬼） -->
-              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 7c1.5-2 4-2 5 0 1 2-1 4-3 4" />
-                <path d="M12 7c-1.5-2-4-2-5 0-1 2 1 4 3 4" />
-                <path d="M12 17c-1.5 2-4 2-5 0-1-2 1-4 3-4" />
-                <path d="M12 17c1.5 2 4 2 5 0 1-2-1-4-3-4" />
-                <path d="M12 10v4" />
-              </svg>
-              <h3>薄桜鬼</h3>
-            </div>
-            <p>歴史とドラマの王道。世界観に浸る入り口に。</p>
-          </article>
-        </div>
-      </section>
+        <fieldset class="question">
+          <legend>4. 一番惹かれるのは？</legend>
+          <label
+            ><input type="radio" name="q4" value="d" required />
+            世界観や時代背景</label
+          >
+          <label
+            ><input type="radio" name="q4" value="a" />
+            人物の心理や関係性</label
+          >
+        </fieldset>
 
-      <!-- 診断から来た人向け（JSで表示/強調される） -->
-      <aside id="result-banner" class="result-banner" hidden>
-        <p class="result-title">
-          あなたの診断結果：<strong id="result-type-name">—</strong>
-        </p>
-        <p class="result-sub" id="result-type-desc">—</p>
-        <p class="result-link"><a href="diagnosis.html">診断をやり直す</a></p>
-      </aside>
+        <fieldset class="question">
+          <legend>5. テンポは？</legend>
+          <label
+            ><input type="radio" name="q5" value="c" required />
+            会話テンポ重視</label
+          >
+          <label
+            ><input type="radio" name="q5" value="a" /> じっくり描写重視</label
+          >
+        </fieldset>
 
-      <!-- 目次 -->
-      <nav class="type-nav" aria-label="タイプ一覧">
-        <h2 class="section-title">タイプ一覧</h2>
-        <ul class="type-nav-list">
-          <li><a href="#type-a">深く沈む物語型</a></li>
-          <li><a href="#type-b">感情を揺さぶられる型</a></li>
-          <li><a href="#type-c">そっと寄り添う会話型</a></li>
-          <li><a href="#type-d">世界に浸るロマン型</a></li>
-        </ul>
-      </nav>
+        <fieldset class="question">
+          <legend>6. 主人公像は？</legend>
+          <label
+            ><input type="radio" name="q6" value="a" required />
+            芯が強く成長する</label
+          >
+          <label
+            ><input type="radio" name="q6" value="d" />
+            世界に馴染むタイプ</label
+          >
+        </fieldset>
 
-      <!-- A -->
-      <section id="type-a" class="recommend-section" data-type="a">
-        <h2>深く沈む物語型</h2>
-        <p class="recommend-lead">
-          伏線・構造・心理の奥行きをじっくり味わうタイプ。
-        </p>
+        <fieldset class="question">
+          <legend>7. 物語の魅力は？</legend>
+          <label
+            ><input type="radio" name="q7" value="a" required />
+            構造・伏線・真相</label
+          >
+          <label
+            ><input type="radio" name="q7" value="b" /> 感情の揺れ・救い</label
+          >
+        </fieldset>
 
-        <div class="works-grid">
-          <article class="work-card">
-            <div class="work-top">
-              <!-- 手錠 -->
-              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M8 7a4 4 0 1 0 0 8h2" />
-                <path d="M16 7a4 4 0 1 1 0 8h-2" />
-                <path d="M10 11h4" />
-              </svg>
-              <h3>Collar×Malice</h3>
-            </div>
-            <p>真相へ向かう設計と緊張感。</p>
-          </article>
+        <fieldset class="question">
+          <legend>8. 一番うれしい体験は？</legend>
+          <label
+            ><input type="radio" name="q8" value="c" required />
+            笑えて元気になる</label
+          >
+          <label
+            ><input type="radio" name="q8" value="b" />
+            泣ける／胸が締めつけられる</label
+          >
+        </fieldset>
 
-          <article class="work-card">
-            <div class="work-top">
-              <!-- 吹き出し（会話/群像） -->
-              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                <path
-                  d="M6 6h12a4 4 0 0 1 4 4v1a4 4 0 0 1-4 4H11l-4 3v-3H6a4 4 0 0 1-4-4v-1a4 4 0 0 1 4-4z"
-                />
-                <path d="M8 10h8" />
-                <path d="M8 13h6" />
-              </svg>
-              <h3>BUSTAFELLOWS</h3>
-            </div>
-            <p>群像劇×テンポで没入。</p>
-          </article>
-
-          <article class="work-card">
-            <div class="work-top">
-              <!-- ギア -->
-              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 8a4 4 0 1 0 0 8a4 4 0 0 0 0-8z" />
-                <path d="M12 2v3" />
-                <path d="M12 19v3" />
-                <path d="M2 12h3" />
-                <path d="M19 12h3" />
-                <path d="M4.5 4.5l2 2" />
-                <path d="M17.5 17.5l2 2" />
-                <path d="M19.5 4.5l-2 2" />
-                <path d="M6.5 17.5l-2 2" />
-              </svg>
-              <h3>even if TEMPEST</h3>
-            </div>
-            <p>選択と物語構造で刺すタイプ。</p>
-          </article>
-        </div>
-
-        <details class="more">
-          <summary>他にもおすすめを見る</summary>
-          <ul class="simple-list">
-            <li>ニル・アドミラリの天秤</li>
-            <li>クロックゼロ</li>
-          </ul>
-        </details>
-      </section>
-
-      <!-- B -->
-      <section id="type-b" class="recommend-section" data-type="b">
-        <h2>感情を揺さぶられる型</h2>
-        <p class="recommend-lead">
-          苦しさも救いも、感情の振れ幅ごと受け取りたいタイプ。
-        </p>
-
-        <div class="works-grid">
-          <article class="work-card">
-            <div class="work-top">
-              <!-- ギア（ヴィルシュ） -->
-              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 8a4 4 0 1 0 0 8a4 4 0 0 0 0-8z" />
-                <path d="M12 2v3" />
-                <path d="M12 19v3" />
-                <path d="M2 12h3" />
-                <path d="M19 12h3" />
-                <path d="M4.5 4.5l2 2" />
-                <path d="M17.5 17.5l2 2" />
-                <path d="M19.5 4.5l-2 2" />
-                <path d="M6.5 17.5l-2 2" />
-              </svg>
-              <h3>終遠のヴィルシュ</h3>
-            </div>
-            <p>重さと救いのバランスで心を持っていかれる。</p>
-          </article>
-
-          <article class="work-card">
-            <div class="work-top">
-              <!-- 刀 -->
-              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M14 4l6 6-7 7-6-6 7-7z" />
-                <path d="M6 18l-2 2" />
-              </svg>
-              <h3>ビルシャナ戦姫</h3>
-            </div>
-            <p>ドラマの熱量と切なさ。</p>
-          </article>
-
-          <article class="work-card">
-            <div class="work-top">
-              <!-- 刀（剣が君） -->
-              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M14 4l6 6-7 7-6-6 7-7z" />
-                <path d="M6 18l-2 2" />
-              </svg>
-              <h3>剣が君</h3>
-            </div>
-            <p>余韻が深く残る、感情の物語。</p>
-          </article>
-        </div>
-
-        <details class="more">
-          <summary>他にもおすすめを見る</summary>
-          <ul class="simple-list">
-            <li>ピオフィオーレの晩鐘</li>
-            <li>NORN9 ノルン+ノネット</li>
-            <li>AMNESIA</li>
-          </ul>
-        </details>
-      </section>
-
-      <!-- C -->
-      <section id="type-c" class="recommend-section" data-type="c">
-        <h2>そっと寄り添う会話型</h2>
-        <p class="recommend-lead">
-          テンポの良さと空気感で、疲れていても読めるタイプ。
-        </p>
-
-        <div class="works-grid">
-          <article class="work-card">
-            <div class="work-top">
-              <!-- ノート -->
-              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                <path
-                  d="M7 4h10a2 2 0 0 1 2 2v14H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"
-                />
-                <path d="M9 8h6" />
-                <path d="M9 12h6" />
-                <path d="M9 16h4" />
-              </svg>
-              <h3>ときめきメモリアル Girl's Side 4th Heart</h3>
-            </div>
-            <p>軽やかに進められる王道。</p>
-          </article>
-
-          <article class="work-card">
-            <div class="work-top">
-              <!-- 矢（キューピッド） -->
-              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M4 20l16-16" />
-                <path d="M15 4h5v5" />
-                <path d="M8 21l-4-1l1-4" />
-              </svg>
-              <h3>キューピッド・パラサイト</h3>
-            </div>
-            <p>テンポと会話で笑える。</p>
-          </article>
-
-          <article class="work-card">
-            <div class="work-top">
-              <!-- 手裏剣 -->
-              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                <path
-                  d="M12 3l2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5L12 3z"
-                />
-                <path d="M12 10.5a1.5 1.5 0 1 0 0 3a1.5 1.5 0 0 0 0-3z" />
-              </svg>
-              <h3>忍び、恋うつつ</h3>
-            </div>
-            <p>サクサク読める“バカゲー”枠。</p>
-          </article>
-        </div>
-
-        <details class="more">
-          <summary>他にもおすすめを見る</summary>
-          <ul class="simple-list">
-            <li>喧嘩番長乙女</li>
-            <li>うたの☆プリンスさまっ♪</li>
-          </ul>
-        </details>
-      </section>
-
-      <!-- D -->
-      <section id="type-d" class="recommend-section" data-type="d">
-        <h2>世界に浸るロマン型</h2>
-        <p class="recommend-lead">
-          歴史や幻想、美しい設定の空気に浸りたいタイプ。
-        </p>
-
-        <div class="works-grid">
-          <article class="work-card">
-            <div class="work-top">
-              <!-- 花 -->
-              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 7c1.5-2 4-2 5 0 1 2-1 4-3 4" />
-                <path d="M12 7c-1.5-2-4-2-5 0-1 2 1 4 3 4" />
-                <path d="M12 17c-1.5 2-4 2-5 0-1-2 1-4 3-4" />
-                <path d="M12 17c1.5 2 4 2 5 0 1-2-1-4-3-4" />
-                <path d="M12 10v4" />
-              </svg>
-              <h3>薄桜鬼</h3>
-            </div>
-            <p>歴史ドラマの王道。</p>
-          </article>
-
-          <article class="work-card">
-            <div class="work-top">
-              <!-- 月（遥か） -->
-              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M21 12.5A8.5 8.5 0 1 1 11.5 3a7 7 0 0 0 9.5 9.5z" />
-              </svg>
-              <h3>遙かなる時空の中で</h3>
-            </div>
-            <p>時代と空気に浸る。</p>
-          </article>
-
-          <article class="work-card">
-            <div class="work-top">
-              <!-- 羽扇（三国） -->
-              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M7 20c6-1 10-6 10-12" />
-                <path d="M9 20c5-2 8-7 8-12" />
-                <path d="M11 20c4-3 6-7 6-12" />
-                <path d="M6 8c3-2 7-2 10 0" />
-              </svg>
-              <h3>三国恋戦記</h3>
-            </div>
-            <p>世界観と物語の手触りで選ぶ。</p>
-          </article>
-        </div>
-
-        <details class="more">
-          <summary>他にもおすすめを見る</summary>
-          <ul class="simple-list">
-            <li>花咲くまにまに</li>
-            <li>明治東亰恋伽</li>
-            <li>ジャックジャンヌ</li>
-          </ul>
-        </details>
-      </section>
-
-      <section class="recommend-section">
-        <h2>購入のヒント</h2>
-        <p>
-          まずはSwitchの<strong>ダウンロード版</strong>が手軽です。長期休みのセール時期は狙い目。<br />
-          物理パッケージ派なら中古や通販で安くなることもあります。
-        </p>
+        <button type="submit" class="btn-primary">診断結果へ進む</button>
         <p class="note-small">
-          ※このサイトでは、作品の雰囲気が伝わるよう「言葉」と「自作の記号（アイコン）」中心で紹介しています。
+          ※結果はレコメンドページの該当タイプへ移動して表示されます。
         </p>
-      </section>
+      </form>
     </main>
 
     <div id="footer"></div>
