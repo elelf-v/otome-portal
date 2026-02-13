@@ -6,86 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="assets/css/styles.css" />
 
-    <!-- 最小の見た目補強：アイコンが「必ず」見えるようにする -->
-    <style>
-      .work-top {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-      .icon {
-        width: 40px;
-        height: 40px;
-        flex: 0 0 40px;
-        stroke: #0f172a;
-        fill: none;
-        stroke-width: 2.2;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-        opacity: 0.95;
-      }
-      .work-card h3 {
-        margin: 0;
-      }
-      .works-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 14px;
-        margin-top: 14px;
-      }
-      @media (max-width: 720px) {
-        .works-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-      .result-banner {
-        margin: 14px 0 22px;
-        padding: 16px 18px;
-        border-radius: 16px;
-        border: 1px solid rgba(179, 58, 58, 0.35);
-        background: rgba(255, 255, 255, 0.92);
-      }
-      .highlight {
-        border: 2px solid rgba(179, 58, 58, 0.75);
-        box-shadow: 0 16px 36px rgba(179, 58, 58, 0.16);
-      }
-      .type-nav-list {
-        list-style: none;
-        padding: 0;
-        margin: 12px 0 0;
-        display: grid;
-        gap: 10px;
-      }
-      .type-nav-list a {
-        display: block;
-        padding: 12px 14px;
-        border-radius: 14px;
-        border: 1px solid rgba(15, 23, 42, 0.12);
-        background: rgba(255, 255, 255, 0.92);
-        text-decoration: none;
-        color: inherit;
-      }
-      .recommend-section {
-        margin: 28px 0;
-        padding: 22px;
-        border-radius: 18px;
-        border: 1px solid rgba(15, 23, 42, 0.12);
-        background: rgba(255, 255, 255, 0.95);
-      }
-      .recommend-lead {
-        margin: 6px 0 0;
-      }
-      .more {
-        margin-top: 12px;
-      }
-      .more summary {
-        cursor: pointer;
-        font-weight: 700;
-      }
-      .simple-list {
-        margin: 10px 0 0 1.2em;
-      }
-    </style>
   </head>
 
   <body>
@@ -426,13 +346,7 @@
           まずはSwitchの<strong>ダウンロード版</strong>が手軽です。長期休みのセール時期は狙い目。<br />
           物理パッケージ派なら中古や通販で安くなることもあります。
         </p>
-        <p
-          style="
-            margin-top: 10px;
-            font-size: 0.85rem;
-            color: rgba(15, 23, 42, 0.6);
-          "
-        >
+        <p class="note-small">
           ※このサイトでは、作品の雰囲気が伝わるよう「言葉」と「自作の記号（アイコン）」中心で紹介しています。
         </p>
       </section>

@@ -75,22 +75,3 @@ document.addEventListener("DOMContentLoaded", () => {
     section.scrollIntoView({ behavior: "smooth" });
   }
 });
-.work-top {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.icon {
-  width: 40px;
-  height: 40px;
-  stroke: currentColor;
-  fill: none;
-  stroke-width: 2;
-  flex: 0 0 40px;
-  opacity: 0.9;
-}
-
-.work-card h3 {
-  margin: 0;
-}
