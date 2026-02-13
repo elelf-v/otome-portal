@@ -41,3 +41,56 @@ function highlightCurrentPage() {
 }
 
 highlightCurrentPage();
+
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("diagnosis-form");
+  if (!form) return;
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    const scores = { a: 0, b: 0, c: 0, d: 0 };
+
+    for (let value of formData.values()) {
+      scores[value]++;
+    }
+
+    const result = Object.keys(scores).reduce((a, b) =>
+      scores[a] > scores[b] ? a : b,
+    );
+
+    window.location.href = `recommend.html?type=${result}`;
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const params = new URLSearchParams(window.location.search);
+  const type = params.get("type");
+  if (!type) return;
+
+  const section = document.getElementById(`type-${type}`);
+  if (section) {
+    section.classList.add("highlight");
+    section.scrollIntoView({ behavior: "smooth" });
+  }
+});
+.work-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  flex: 0 0 40px;
+  opacity: 0.9;
+}
+
+.work-card h3 {
+  margin: 0;
+}

@@ -6,26 +6,180 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
+
   <body>
     <div id="header"></div>
 
-    <main>
-      <h1>タイプ別レコメンド</h1>
-      <p>診断結果（または気分）から、合う作品の入口へ。</p>
+    <main class="page">
+      <header class="page-header">
+        <h1>タイプ別レコメンド</h1>
+        <p class="lead">
+          診断結果（または今日の気分）から、合う物語の入口へ。<br />
+          まずは「迷ったらここから（王道）」でもOKです。
+        </p>
+      </header>
 
-      <section>
-        <h2>タイプ一覧（仮）</h2>
-        <ul>
-          <li>没入ストーリー派</li>
-          <li>関係性じっくり派</li>
-          <li>テンポ重視・コメディ派</li>
-          <li>余韻・切なさ派</li>
-        </ul>
+      <section class="recommend-section">
+        <h2>迷ったらここから（王道3選）</h2>
+        <div class="works-grid">
+          <article class="work-card">
+            <h3>ときめきメモリアル Girl's Side 4th Heart</h3>
+            <p>日常の積み重ねで関係が変わる。入口として安心。</p>
+          </article>
+          <article class="work-card">
+            <h3>Collar×Malice</h3>
+            <p>
+              サスペンスで引っ張る“物語体験”。恋愛以外の魅力が伝わりやすい。
+            </p>
+          </article>
+          <article class="work-card">
+            <h3>薄桜鬼</h3>
+            <p>歴史とドラマの王道。世界観に浸る入り口に。</p>
+          </article>
+        </div>
       </section>
 
-      <section>
-        <h2>おすすめ（仮）</h2>
-        <p>ここに各タイプのおすすめ作品カードを並べる。</p>
+      <aside id="result-banner" class="result-banner" hidden>
+        <p class="result-title">
+          あなたの診断結果：<strong id="result-type-name">—</strong>
+        </p>
+        <p class="result-sub" id="result-type-desc">—</p>
+        <p class="result-link"><a href="diagnosis.html">診断をやり直す</a></p>
+      </aside>
+
+      <nav class="type-nav" aria-label="タイプ一覧">
+        <h2 class="section-title">タイプ一覧</h2>
+        <ul class="type-nav-list">
+          <li><a href="#type-a">深く沈む物語型</a></li>
+          <li><a href="#type-b">感情を揺さぶられる型</a></li>
+          <li><a href="#type-c">そっと寄り添う会話型</a></li>
+          <li><a href="#type-d">世界に浸るロマン型</a></li>
+        </ul>
+      </nav>
+
+      <section id="type-a" class="recommend-section" data-type="a">
+        <h2>深く沈む物語型</h2>
+        <p class="recommend-lead">
+          伏線・構造・心理の奥行きをじっくり味わうタイプ。
+        </p>
+        <div class="works-grid">
+          <article class="work-card">
+            <h3>Collar×Malice</h3>
+            <p>真相へ向かう設計と緊張感。</p>
+          </article>
+          <article class="work-card">
+            <h3>BUSTAFELLOWS</h3>
+            <p>群像劇×テンポの良さで没入。</p>
+          </article>
+          <article class="work-card">
+            <h3>even if TEMPEST</h3>
+            <p>選択と物語構造で刺すタイプ。</p>
+          </article>
+        </div>
+        <details class="more">
+          <summary>他にもおすすめを見る</summary>
+          <ul class="simple-list">
+            <li>ニル・アドミラリの天秤</li>
+            <li>クロックゼロ</li>
+          </ul>
+        </details>
+      </section>
+
+      <section id="type-b" class="recommend-section" data-type="b">
+        <h2>感情を揺さぶられる型</h2>
+        <p class="recommend-lead">
+          苦しさも救いも、感情の振れ幅ごと受け取りたいタイプ。
+        </p>
+        <div class="works-grid">
+          <article class="work-card">
+            <h3>終遠のヴィルシュ</h3>
+            <p>重さと救いのバランスで心を持っていかれる。</p>
+          </article>
+          <article class="work-card">
+            <h3>ビルシャナ戦姫</h3>
+            <p>ドラマの熱量と切なさ。</p>
+          </article>
+          <article class="work-card">
+            <h3>剣が君</h3>
+            <p>余韻が深く残る、感情の物語。</p>
+          </article>
+        </div>
+        <details class="more">
+          <summary>他にもおすすめを見る</summary>
+          <ul class="simple-list">
+            <li>ピオフィオーレの晩鐘</li>
+            <li>NORN9 ノルン+ノネット</li>
+            <li>AMNESIA</li>
+          </ul>
+        </details>
+      </section>
+
+      <section id="type-c" class="recommend-section" data-type="c">
+        <h2>そっと寄り添う会話型</h2>
+        <p class="recommend-lead">
+          テンポの良さと空気感で、疲れていても読めるタイプ。
+        </p>
+        <div class="works-grid">
+          <article class="work-card">
+            <h3>ときめきメモリアル Girl's Side 4th Heart</h3>
+            <p>軽やかに進められる王道。</p>
+          </article>
+          <article class="work-card">
+            <h3>キューピッド・パラサイト</h3>
+            <p>テンポと会話で笑える。</p>
+          </article>
+          <article class="work-card">
+            <h3>忍び、恋うつつ</h3>
+            <p>サクサク読める“バカゲー”枠。</p>
+          </article>
+        </div>
+        <details class="more">
+          <summary>他にもおすすめを見る</summary>
+          <ul class="simple-list">
+            <li>喧嘩番長乙女</li>
+            <li>うたの☆プリンスさまっ♪</li>
+          </ul>
+        </details>
+      </section>
+
+      <section id="type-d" class="recommend-section" data-type="d">
+        <h2>世界に浸るロマン型</h2>
+        <p class="recommend-lead">
+          歴史や幻想、美しい設定の空気に浸りたいタイプ。
+        </p>
+        <div class="works-grid">
+          <article class="work-card">
+            <h3>薄桜鬼</h3>
+            <p>歴史ドラマの王道。</p>
+          </article>
+          <article class="work-card">
+            <h3>遙かなる時空の中で</h3>
+            <p>時代と空気に浸る。</p>
+          </article>
+          <article class="work-card">
+            <h3>三国恋戦記</h3>
+            <p>世界観と物語の手触りで選ぶ。</p>
+          </article>
+        </div>
+        <details class="more">
+          <summary>他にもおすすめを見る</summary>
+          <ul class="simple-list">
+            <li>花咲くまにまに</li>
+            <li>明治東亰恋伽</li>
+            <li>ジャックジャンヌ</li>
+          </ul>
+        </details>
+      </section>
+
+      <section class="recommend-section">
+        <h2>購入のヒント</h2>
+        <p>
+          まずはSwitchの<strong>ダウンロード版</strong>が手軽です。長期休みのセール時期は狙い目。<br />
+          物理パッケージ派なら中古や通販で安くなることもあります。
+        </p>
+        <p class="note-small">
+          ※このサイトでは、作品の雰囲気が伝わるよう「言葉」を中心に紹介しています。
+        </p>
       </section>
     </main>
 

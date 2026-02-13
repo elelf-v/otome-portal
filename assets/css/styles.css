@@ -663,3 +663,15 @@ hr {
   border-top: 1px solid rgba(15, 23, 42, 0.12);
   margin: 22px 0;
 }
+
+.recommend-section {
+  margin: 40px 0;
+  padding: 24px;
+  border-radius: 16px;
+  background: white;
+}
+
+.highlight {
+  border: 2px solid #b33a3a;
+  box-shadow: 0 10px 30px rgba(179, 58, 58, 0.15);
+}
