@@ -54,6 +54,11 @@ body {
   height: 100%;
 }
 
+html {
+  scroll-padding-top: calc(var(--header-space) + 12px);
+  scroll-padding-bottom: calc(var(--footer-space) + 36px);
+}
+
 body {
   margin: 0;
   color: var(--text);
@@ -77,7 +82,7 @@ body {
   -webkit-font-smoothing: antialiased;
   background-attachment: fixed; /* Keep decorative bg behind content */
   padding-top: var(--header-space);
-  padding-bottom: var(--footer-space);
+  padding-bottom: calc(var(--footer-space) + 36px);
 }
 
 a {
@@ -804,6 +809,125 @@ hr {
 }
 
 /* ========= Diagnosis / Recommend ========= */
+.diagnosis {
+  margin-top: 14px;
+  display: grid;
+  gap: 12px;
+  padding-bottom: calc(var(--footer-space) + 8px);
+}
+
+.diagnosis .question {
+  margin: 0;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 16px;
+  padding: 16px 16px 14px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.96),
+    rgba(255, 250, 242, 0.92)
+  );
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.06);
+  transition: 0.18s ease;
+}
+
+.diagnosis .question:hover {
+  border-color: rgba(155, 44, 44, 0.38);
+  box-shadow: 0 12px 28px rgba(155, 44, 44, 0.1);
+}
+
+.diagnosis .question legend {
+  display: block;
+  width: 100%;
+  margin: 0 0 10px;
+  padding: 0;
+  font-family: var(--serif);
+  font-size: 15.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: rgba(15, 23, 42, 0.92);
+}
+
+.diagnosis .question label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  border: 1px solid rgba(15, 23, 42, 0.14);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  color: rgba(15, 23, 42, 0.82);
+  padding: 10px 12px;
+  line-height: 1.75;
+  transition: 0.18s ease;
+}
+
+.diagnosis .question label + label {
+  margin-top: 8px;
+}
+
+.diagnosis .question label:hover {
+  border-color: rgba(155, 44, 44, 0.35);
+  background: rgba(255, 255, 255, 0.98);
+  color: rgba(15, 23, 42, 0.9);
+  transform: translateY(-1px);
+}
+
+.diagnosis .question input[type="radio"] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  border-radius: 999px;
+  border: 2px solid rgba(31, 42, 68, 0.45);
+  background: rgba(255, 255, 255, 0.98);
+  position: relative;
+  flex: 0 0 18px;
+  transition: 0.18s ease;
+}
+
+.diagnosis .question input[type="radio"]::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: 999px;
+  background: var(--redChic);
+  transform: scale(0);
+  transition: transform 0.16s ease;
+}
+
+.diagnosis .question input[type="radio"]:checked {
+  border-color: rgba(155, 44, 44, 0.8);
+  box-shadow: 0 0 0 4px rgba(155, 44, 44, 0.12);
+}
+
+.diagnosis .question input[type="radio"]:checked::after {
+  transform: scale(1);
+}
+
+.diagnosis .question label:has(input[type="radio"]:checked) {
+  border-color: rgba(155, 44, 44, 0.5);
+  background: rgba(155, 44, 44, 0.08);
+  color: rgba(15, 23, 42, 0.95);
+}
+
+.diagnosis .btn-primary {
+  margin-top: 0;
+  justify-self: start;
+  min-width: 200px;
+}
+
+.diagnosis .note-small {
+  margin: 2px 0 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: rgba(15, 23, 42, 0.68);
+}
+
+.diagnosis .note-small + .btn-primary {
+  margin-top: 6px;
+}
+
 .recommend-section {
   margin: 28px 0;
   padding: 22px;
@@ -1049,6 +1173,19 @@ main.page > .recommend-section:first-of-type .work-card:nth-of-type(3) h3::befor
 }
 
 @media (max-width: 720px) {
+  .diagnosis .question {
+    padding: 14px 12px 12px;
+  }
+
+  .diagnosis .question label {
+    padding: 9px 10px;
+  }
+
+  .diagnosis .btn-primary {
+    width: 100%;
+    min-width: 0;
+  }
+
   .works-grid {
     grid-template-columns: 1fr;
   }
