@@ -188,7 +188,7 @@ main dd {
 
 .logo {
   display: inline-flex;
-  align-items: baseline;
+  align-items: center;
   gap: 10px;
   white-space: nowrap;
   font-family: var(--serif);
@@ -197,18 +197,20 @@ main dd {
   color: rgba(15, 23, 42, 0.92);
 }
 
-.logo::before {
-  content: "";
-  width: 12px;
-  height: 12px;
-  border-radius: 999px;
-  background: linear-gradient(
-    135deg,
-    rgba(201, 167, 182, 0.95),
-    rgba(31, 42, 68, 0.85)
-  );
-  box-shadow: 0 0 0 4px rgba(201, 167, 182, 0.18);
-  display: inline-block;
+.logo-icon {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  background-color: rgba(126, 104, 95, 0.95);
+  -webkit-mask: url("../images/otome-portal-icon.svg") center / contain
+    no-repeat;
+  mask: url("../images/otome-portal-icon.svg") center / contain no-repeat;
+  transition: background-color 0.18s ease;
+}
+
+.logo:hover .logo-icon,
+.logo:focus-visible .logo-icon {
+  background-color: var(--redChic);
 }
 
 .global-nav ul {
