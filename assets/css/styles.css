@@ -1035,6 +1035,14 @@ main.page > .recommend-section:first-of-type .work-card:nth-of-type(3) h3::befor
   content: "\1F451";
 }
 
+#type-a .simple-list li:nth-of-type(1)::before {
+  content: "\2696\00A0";
+}
+
+#type-a .simple-list li:nth-of-type(2)::before {
+  content: "\1F552\00A0";
+}
+
 #type-b .work-card:nth-of-type(1) h3::before {
   content: "\2699";
 }
